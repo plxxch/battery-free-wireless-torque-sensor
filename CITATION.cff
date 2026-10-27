@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this firmware, please cite the accompanying paper."
+title: "Battery-Free Wireless Torque Sensor (BWST): Demo Firmware"
+abstract: >-
+  Firmware for a battery-free wireless torque-sensing platform based on the
+  Texas Instruments CC430F5137. It contains a sensor node that samples a
+  strain-gauge bridge and transmits the reading over a sub-1 GHz radio link,
+  and a receiver node that forwards the received value over UART.
+type: software
+authors:
+  - family-names: Li
+    given-names: Pengyu
+    affiliation: "STVLAb, City University of Hong Kong"
+year: 2023
+license: MIT
+repository-code: "https://github.com/plxxch/battery-free-wireless-torque-sensor"
+keywords:
+  - battery-free
+  - wireless sensor
+  - torque sensor
+  - strain gauge
+  - CC430F5137
+  - MSP430
+# TODO(author): add the paper title, DOI and full author list once published.
