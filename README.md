@@ -163,10 +163,6 @@ If you use this firmware, please cite:
 
 See also [CITATION.cff](CITATION.cff).
 
-## Contact
-
-**Pengyu Li** — STVLAb, City University of Hong Kong
-
 ## Disclaimer
 
 This firmware is provided for research and educational purposes, "as is",
