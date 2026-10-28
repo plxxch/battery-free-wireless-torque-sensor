@@ -8,7 +8,7 @@
         CC430F5137 sub-1 GHz radio. Based on example code from Texas
         Instruments.
 
- @author Pengyu Li (STVLAb, City University of Hong Kong)
+ @author Pengyu Li (STVL, City University of Hong Kong)
 
  Copyright (c) 2023 Pengyu Li
  SPDX-License-Identifier: MIT
