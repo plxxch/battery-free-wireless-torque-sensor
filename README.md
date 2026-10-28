@@ -90,8 +90,9 @@ in the accompanying paper.
    in the receiver project).
 4. Build and flash with the MSP-FET.
 
-No external files need to be downloaded: all third-party code shipped in this
-repository is BSD-licensed.
+No external files need to be downloaded: all third-party source code shipped
+in this repository is BSD-licensed (the `lnk_cc430f6137.cmd` linker scripts
+are CCS-generated configuration files).
 
 ## TI example code and replacements
 
