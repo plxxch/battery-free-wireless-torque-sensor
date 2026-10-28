@@ -53,16 +53,16 @@ CC1101-compatible radio). The repository contains two Code Composer Studio
 .
 ├── BWST-sensor-demo/          # CCS project: sensor node
 │   ├── BWST-sensor-demo.c     # application entry point
+│   ├── BWST-sensor-demo.h     # project header (replaces TI's RF_Toggle_LED_Demo.h)
 │   ├── HAL/                   # RF1A radio driver (TI, BSD)
 │   ├── targetConfigs/         # CCS target configuration (.ccxml)
 │   └── ...
 ├── BWTS-Receiver-demo/        # CCS project: receiver node
 │   ├── BWTS-Reciver-demo.c    # application entry point (original filename)
-│   ├── HAL/                   # RF1A + port-mapper drivers (TI, BSD)
+│   ├── BWTS-Receiver-demo.h   # project header (replaces TI's RF_Toggle_LED_Demo.h)
+│   ├── HAL/                   # RF1A, port-mapper and PMM drivers (TI, BSD)
 │   ├── targetConfigs/
 │   └── ...
-├── tools/
-│   └── restore_ti_files.ps1   # restores TI-licensed files (see below)
 ├── THIRD_PARTY_NOTICES.md
 ├── CITATION.cff
 └── LICENSE
@@ -83,49 +83,36 @@ in the accompanying paper.
 
 1. Install **Code Composer Studio** with MSP430 support. The projects were
    created with the CCS 8-era tool chain (codegen 3.2.3).
-2. Restore the TI-licensed files listed in the next section.
-3. `File → Import → CCS Projects`, then select both project folders.
-4. Select the **CC430F5137** target. The exported `.ccsproject` metadata may
+2. `File → Import → CCS Projects`, then select both project folders.
+3. Select the **CC430F5137** target. The exported `.ccsproject` metadata may
    mention CC430F6137 — both variants share the same CPU and radio; the
    `targetConfigs/` folder contains `CC430F5137.ccxml` (and `CC430F6137.ccxml`
    in the receiver project).
-5. Build and flash with the MSP-FET.
+4. Build and flash with the MSP-FET.
 
-## TI-licensed files intentionally not included
+No external files need to be downloaded: all third-party code shipped in this
+repository is BSD-licensed.
 
-The following files come from TI's MSP430Ware / CC430 RF examples and are
-distributed under TI's *MSP Source and Object Code Software License Agreement*,
-which does not permit redistribution. They are therefore **not** part of this
-repository:
+## TI example code and replacements
 
-| Missing file | Needed by |
+TI's CC430 RF examples package (SLAC525) is distributed under the restrictive
+*MSP Source and Object Code Software License Agreement* and is not
+redistributed here. The code that depended on it has been adapted as follows:
+
+| Original TI file | Replacement |
 |---|---|
-| `BWST-sensor-demo/RF_Toggle_LED_Demo.h` | sensor node |
-| `BWST-sensor-demo/HAL/HAL_MACROS.h` | sensor node |
-| `BWST-sensor-demo/HAL/HAL_PMM.c` | sensor node |
-| `BWST-sensor-demo/HAL/HAL_PMM.h` | sensor node |
-| `BWTS-Receiver-demo/RF_Toggle_LED_Demo.h` | receiver |
-| `BWTS-Receiver-demo/HAL/hal_pmm.c` | receiver (`SetVCore`) |
-| `BWTS-Receiver-demo/HAL/hal_pmm.h` | receiver (`SetVCore`) |
+| `RF_Toggle_LED_Demo.h` (sensor) | `BWST-sensor-demo.h` (project-local, MIT) |
+| `RF_Toggle_LED_Demo.h` (receiver) | `BWTS-Receiver-demo.h` (project-local, MIT) |
+| `HAL_PMM.c/.h` (receiver) | BSD-licensed `HAL/HAL_PMM.c/.h` from TI's F5xx/6xx core library |
+| `HAL_MACROS.h` (receiver) | BSD-licensed `HAL/HAL_MACROS.h` |
+| `HAL_MACROS.h` / `HAL_PMM.*` (sensor) | not needed — the sensor does not use the PMM |
 
-### Restoring the files
+The original `RF_Toggle_LED_Demo.h` contained only includes and function
+declarations, so the project-local headers are functionally equivalent.
 
-1. In CCS Resource Explorer, install **MSP430Ware** and the **CC430 RF
-   examples** (the `RF_Toggle_LED_Demo` example provides
-   `RF_Toggle_LED_Demo.h`, `HAL_MACROS.h` and the PMM HAL files).
-2. From the repository root, run:
-
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File tools/restore_ti_files.ps1 -CcsRoot "C:\ti"
-   ```
-
-   The script searches the given directory for each required file and copies it
-   to the expected path. If it finds several candidates it lists them and
-   copies nothing, so you can point `-SourceRoot` at the correct package.
-3. By running the script you accept TI's license terms for those files.
-
-If you cannot obtain the files, contact the author for a complete CCS
-workspace archive.
+> The BSD `HAL_PMM` implementation is a different revision from the one in
+> SLAC525. Verify `SetVCore(3)` on hardware before relying on it; if needed, a
+> minimal `SetVCore` can be implemented from TI's public MSP430 User's Guide.
 
 ## UART output
 

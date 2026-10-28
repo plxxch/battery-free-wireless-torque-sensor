@@ -17,7 +17,7 @@
 
  ******************************************************************************/
 
-#include "RF_Toggle_LED_Demo.h"
+#include "BWST-sensor-demo.h"
 
 #include "CC430F5137.h"
 

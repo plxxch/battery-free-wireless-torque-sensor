@@ -17,7 +17,7 @@
 
  ******************************************************************************/
 
-#include "RF_Toggle_LED_Demo.h"
+#include "BWTS-Receiver-demo.h"
 #include "MSP430.h"
 #include "CC430F5137.h"
 

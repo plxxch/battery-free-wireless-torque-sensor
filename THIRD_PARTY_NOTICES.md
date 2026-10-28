@@ -18,6 +18,8 @@ unchanged in the file headers.
 | `BWTS-Receiver-demo/HAL/HAL_PMAP.c` | © 2010 Texas Instruments Incorporated | BSD 3-Clause |
 | `BWTS-Receiver-demo/HAL/HAL_PMAP.h` | © 2010 Texas Instruments Incorporated | BSD 3-Clause |
 | `BWTS-Receiver-demo/HAL/HAL_MACROS.h` | © 2010 Texas Instruments Incorporated | BSD 3-Clause |
+| `BWTS-Receiver-demo/HAL/HAL_PMM.c` | © 2010 Texas Instruments Incorporated | BSD 3-Clause |
+| `BWTS-Receiver-demo/HAL/HAL_PMM.h` | © 2010 Texas Instruments Incorporated | BSD 3-Clause |
 | `BWTS-Receiver-demo/lnk_cc430f5137.cmd` | © 2018 Texas Instruments Incorporated | BSD 3-Clause |
 | `BWTS-Receiver-demo/lnk_cc430f6137.cmd` | © 2018 Texas Instruments Incorporated | BSD 3-Clause |
 
@@ -31,24 +33,23 @@ of Texas Instruments Incorporated and its contributors are not used to endorse
 derived products without written permission. The software is provided
 **"AS IS"**, without warranty.
 
-## Not included (TI MSP Source and Object Code Software License Agreement)
+## Not used (TI SLAC525 example package)
 
-The following files are part of TI's MSP430Ware / CC430 RF examples and are
-distributed under TI's *MSP Source and Object Code Software License Agreement*
-(the `--COPYRIGHT--,TI` block). That agreement does **not** permit
-redistribution, so the files are intentionally absent from this repository:
+TI's CC430 RF examples package (SLAC525) is distributed under TI's
+*MSP Source and Object Code Software License Agreement* (the
+`--COPYRIGHT--,TI` block), which does not permit redistribution. Its copies of
+`RF_Toggle_LED_Demo.h`, `HAL_PMM.c/.h`, `HAL_MACROS.h` and `RF1A.c` are not
+redistributed here.
 
-- `BWST-sensor-demo/RF_Toggle_LED_Demo.h`
-- `BWST-sensor-demo/HAL/HAL_MACROS.h`
-- `BWST-sensor-demo/HAL/HAL_PMM.c`
-- `BWST-sensor-demo/HAL/HAL_PMM.h`
-- `BWTS-Receiver-demo/RF_Toggle_LED_Demo.h`
-- `BWTS-Receiver-demo/HAL/hal_pmm.c`
-- `BWTS-Receiver-demo/HAL/hal_pmm.h`
+Instead this repository uses:
 
-See the "TI-licensed files intentionally not included" section of the
-[README](README.md) for restoration instructions. If you restore them, you are
-responsible for complying with TI's terms.
+- project-local `BWST-sensor-demo.h` and `BWTS-Receiver-demo.h` (MIT), which
+  replace the include-only `RF_Toggle_LED_Demo.h`;
+- the BSD-licensed F5xx/6xx core-library `HAL_PMM.c/.h` and `HAL_MACROS.h`;
+- the BSD-licensed RF1A radio driver.
+
+The BSD `HAL_PMM` code is a different revision from the SLAC525 version; see
+the README for the hardware-verification note.
 
 ## Not included (Analog Devices)
 
