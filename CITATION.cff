@@ -1,16 +1,26 @@
 cff-version: 1.2.0
-message: "If you use this firmware, please cite the accompanying paper."
-title: "Battery-Free Wireless Torque Sensor (BWST): Demo Firmware"
+message: "If you use this firmware, please cite the paper listed in preferred-citation."
+title: "Battery-Free Wireless Torque Sensor (BWTS): Demo Firmware"
 abstract: >-
   Firmware for a battery-free wireless torque-sensing platform based on the
   Texas Instruments CC430F5137. It contains a sensor node that samples a
   strain-gauge bridge and transmits the reading over a sub-1 GHz radio link,
-  and a receiver node that forwards the received value over UART.
+  and a receiver node that forwards the received value over UART. This
+  repository accompanies the paper "Battery-Free Wireless Torque Sensor
+  Powered by RF Energy" (IEEE Internet of Things Journal, 2023).
 type: software
 authors:
   - family-names: Li
     given-names: Pengyu
     affiliation: "STVLAb, City University of Hong Kong"
+  - family-names: Long
+    given-names: Zhihe
+  - family-names: Jin
+    given-names: Lihan
+  - family-names: Dong
+    given-names: Shuxiang
+  - family-names: Yang
+    given-names: Zhengbao
 year: 2023
 license: MIT
 repository-code: "https://github.com/plxxch/battery-free-wireless-torque-sensor"
@@ -19,6 +29,27 @@ keywords:
   - wireless sensor
   - torque sensor
   - strain gauge
+  - RF energy harvesting
   - CC430F5137
   - MSP430
-# TODO(author): add the paper title, DOI and full author list once published.
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Li
+      given-names: Pengyu
+    - family-names: Long
+      given-names: Zhihe
+    - family-names: Jin
+      given-names: Lihan
+    - family-names: Dong
+      given-names: Shuxiang
+    - family-names: Yang
+      given-names: Zhengbao
+  title: "Battery-Free Wireless Torque Sensor Powered by RF Energy"
+  year: 2023
+  journal: "IEEE Internet of Things Journal"
+  volume: 10
+  issue: 18
+  start: 16371
+  end: 16380
+  doi: "10.1109/JIOT.2023.3267812"

@@ -10,8 +10,15 @@ CC1101-compatible radio). The repository contains two Code Composer Studio
 | `BWST-sensor-demo/` | Sensor node — samples a strain-gauge bridge and transmits the reading over the air. |
 | `BWTS-Receiver-demo/` | Receiver node — receives the packet and streams the value over UART. |
 
-> This is a research prototype that accompanies a paper. It is not certified
-> for clinical, automotive, or industrial use.
+This repository accompanies the paper:
+
+> P. Li, Z. Long, L. Jin, S. Dong, and Z. Yang, “Battery-Free Wireless Torque
+> Sensor Powered by RF Energy,” *IEEE Internet of Things Journal*, vol. 10,
+> no. 18, pp. 16371–16380, 2023.
+> DOI: [10.1109/JIOT.2023.3267812](https://doi.org/10.1109/JIOT.2023.3267812)
+
+> This is a research prototype. It is not certified for clinical, automotive,
+> or industrial use.
 
 ## How it works
 
@@ -139,9 +146,22 @@ their file headers.
 
 ## Citation
 
-If you use this firmware, please cite the accompanying paper. See
-[CITATION.cff](CITATION.cff) and update the publication details once the paper
-is published.
+If you use this firmware, please cite:
+
+```bibtex
+@article{li2023battery,
+  author  = {Li, Pengyu and Long, Zhihe and Jin, Lihan and Dong, Shuxiang and Yang, Zhengbao},
+  title   = {Battery-Free Wireless Torque Sensor Powered by {RF} Energy},
+  journal = {IEEE Internet of Things Journal},
+  volume  = {10},
+  number  = {18},
+  pages   = {16371--16380},
+  year    = {2023},
+  doi     = {10.1109/JIOT.2023.3267812}
+}
+```
+
+See also [CITATION.cff](CITATION.cff).
 
 ## Contact
 
